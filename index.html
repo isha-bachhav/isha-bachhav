@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    Happy Birthday Saru 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cursive', sans-serif;
+      background: linear-gradient(to bottom right, #ffd6e7, #fff0f5);
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      color: #ff3399;
+      margin-top: 2rem;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff66b2; }
+      to { text-shadow: 0 0 20px #ff3399, 0 0 30px #ff3399; }
+    }
+
+    .popup-text {
+      text-align: center;
+      font-size: 2em;
+      color: #e60073;
+      animation: pop 2s ease forwards;
+      margin-top: 1rem;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      width: 20px;
+      height: 20px;
+      background: red;
+      position: absolute;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+    .note {
+      margin: 2rem auto;
+      width: 80%;
+      text-align: center;
+      font-size: 1.8em;
+      color: #cc0066;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .throbbing-heart {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .throbbing-heart img {
+      width: 120px;
+      animation: throb 1s infinite;
+    }
+
+    @keyframes throb {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    .letter-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .envelope {
+      width: 180px;
+      height: 120px;
+      background: #ffb6c1;
+      position: relative;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .letter {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: white;
+      color: #cc0066;
+      font-size: 1.2em;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
+      animation: slideUp 3s ease-out forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes slideUp {
+      to { top: 0; }
+    }
+
+    #photoSection {
+      margin: 4rem auto;
+      width: 80%;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 2s ease;
+    }
+
+    #photoSection.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #photoSection img {
+      width: 320px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #ff99cc;
+    }
+
+    .ancient-letter {
+      margin: 3rem auto;
+      max-width: 800px;
+      padding: 2rem;
+      background: #f3eacb;
+      border: 4px solid #aa8c56;
+      font-family: 'Georgia', serif;
+      color: #5c4033;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      transform: rotate(-1deg);
+      background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+    }
+
+    .extra-popups {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #e60073;
+      animation: pop 1s ease forwards;
+      margin-top: 2rem;
+    }
+
+    .final-touch {
+      text-align: center;
+      margin: 4rem auto;
+      font-size: 1.6rem;
+      padding: 1.5rem;
+      background: #fff0f5;
+      border: 2px dashed #ff66a3;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,105,180,0.3);
+      animation: fadeIn 4s ease-in-out;
+    }
+
+    .scratch-card, .timeline-section {
+      text-align: center;
+      margin: 4rem auto;
+    }
+
+    .scratch-card h2, .timeline-section h2 {
+      color: #cc0066;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffe4ec;
+      border-left: 4px solid #ff66a3;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .timeline p {
+      font-size: 1rem;
+      margin: 1rem 0;
+      color: #660033;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts"></div>
+  <h1>Happy Birthday Saru 💖</h1>
+  <div class="popup-text">I love you Saru, forever and always 💘</div>
+  <div class="note">You mean the world to me and more. Here's something special for you...</div>
+
+  <div class="throbbing-heart">
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="heart">
+  </div>
+
+  <div id="photoSection">
+    <img src="/images/img.jpg.png" alt="Us Together">
+  </div>
+
+  <div class="letter-container">
+    <div class="envelope">
+      <div class="letter">Since I met you, life has been beautiful. We've been together from 24 October 2024, faced many things, but nothing has affected our love. You're so lovely, and I feel lucky every day 💌</div>
+    </div>
+  </div>
+
+  <div class="extra-popups">Our journey has just begun... 💞</div>
+
+  <div class="ancient-letter">
+    <p>My dearest Saru,</p>
+    <p>From the moment we met on October 24, 2024, everything changed. Our bond has grown stronger through each season of life. Despite the challenges, your love has always been constant, and your presence has been the greatest blessing.</p>
+    <p>You bring joy in every smile and peace in every touch. I am endlessly grateful for the journey we're walking together, hand in hand. Here's to many more chapters filled with love, laughter, and unforgettable moments. ❤️</p>
+  </div>
+
+  <div class="final-touch">
+    You're the sunshine to my soul and the beat to my heart 🌞💓<br>
+    Happy Birthday once again, my forever one 🎉
+  </div>
+
+  <div class="scratch-card">
+    <h2>🎁 Scratch Card Surprise 🎁</h2>
+    <p>Scratch here to reveal a sweet surprise! (Just imagine 😉)</p>
+    <p style="background:#ffccdd; display:inline-block; padding:1rem; border-radius:10px; box-shadow: 0 0 15px #ff99cc;">💖 You are the most precious part of my life 💖</p>
+  </div>
+
+  <div class="timeline-section">
+    <h2>📆 Our Love Timeline 📆</h2>
+    <div class="timeline">
+      <p>💘 October 24, 2024 – We met and everything changed!</p>
+      <p>💑 Late night talks and early morning texts 💬</p>
+      <p>🎉 Celebrating little moments and big smiles</p>
+      <p>❤️ Through every up and down, we stood stronger</p>
+      <p>🌈 Now, we look forward to forever – together</p>
+    </div>
+  </div>
+
+  <script>
+    const heartsContainer = document.querySelector(".hearts");
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 12000);
+    }
+    setInterval(createHeart, 250);
+
+    const photoSection = document.getElementById("photoSection");
+    if (photoSection) {
+      window.addEventListener("scroll", () => {
+        const triggerPoint = window.innerHeight * 0.8;
+        if (photoSection.getBoundingClientRect().top < triggerPoint) {
+          photoSection.classList.add("show");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
